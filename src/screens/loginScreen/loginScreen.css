@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Axiforma";
+  src: url("../../assets/fonts/Axiforma-Bold.ttf") format("ttf");
+}
+
+.mainContainer{
+  position: relative;
+}
+
+.mainInfo.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Axiforma";
+}
+
+.loginContainer{
+  width: 450px;
+  border: 1px solid lightgray;
+  border-radius: 25px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.titleSec{
+  width: 100%;
+  text-align: center;
+  font-family: "Axiforma";
+}
+
+.titleSec img{
+  width: 100px;
+}
+
+.titleSec h2{
+  margin: -20px 0 30px 0;
+}
+
+.formContainer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.formContainer .email, .formContainer .password{
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.formContainer .password{
+  margin-bottom: 80px;
+}
+
+.formContainer .email .icon, .formContainer .password .icon{
+  font-size: 1.5rem;
+  margin: 0 10px;
+}
+
+.formContainer .email input, .formContainer .password input{
+  height: 50px;
+  border-color: transparent transparent transparent   lightgray;
+  border-width: 1px;
+  border-radius: 0 20px 20px 0;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  padding-left: 5px;
+  outline: none;
+}
+
+.formContainer .password .passwordForgot{
+  position: absolute;
+  bottom: -75%;
+  left: 0;
+}
+
+.formContainer .password .passwordForgot a{
+  color: #6EA541;
+}
+
+.btnSend{
+  text-align: center;
+}
+
+.btnSend button{
+  font-size: 1.1rem;
+  background-color: #B1DF8B;
+  border: none;
+  padding: 10px 35px;
+  border-radius: 20px;
+  font-family: "Axiforma";
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s ease all;
+  margin-bottom: 50px;
+}
+
+.btnSend button:hover{
+  background-color: #70CC25;
+}
+
+.notRegistered{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.notRegistered .link{
+  color: #70CC25;
+}

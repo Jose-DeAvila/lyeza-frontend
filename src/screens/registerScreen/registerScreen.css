@@ -1,0 +1,22 @@
+.mainContainer{
+  overflow-y: visible;
+}
+
+.mainInfo.register{
+  position: absolute;
+  width: 450px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mainInfo.register .loginContainer{
+  margin-bottom: 10px;
+}
+
+.mainInfo.register form .password{
+  margin-bottom: 10px;
+}
+
+.mainInfo.register form div .icon{
+  width: 2rem;
+}

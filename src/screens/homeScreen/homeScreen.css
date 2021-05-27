@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Axiforma";
+  src: url("../../assets/fonts/Axiforma-Bold.ttf") format("ttf");
+}
+
+.mainContainer{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  transition: .3s ease all;
+  animation-name: main;
+  animation-duration: 1s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+.mainInfo{
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left;
+}
+
+.bg{
+  z-index: -1;
+  position: absolute;
+  width: 823px;
+  height: 827px;
+  background-position: left;
+  background-repeat: no-repeat;
+  right: 0;
+  top: -150%;
+}
+
+.textInfo{
+  text-align: left;
+  margin: 0 0 0 55px;
+  font-size: 2.5rem;
+  width: 40%;
+  margin-top: 140px;
+  font-weight: bold;
+  font-family: "Axiforma";
+}
+
+.btnInit{
+  margin: 0 0 0 55px;
+  font-family: "Axiforma";
+  font-size: 1.5rem;
+  background-color: #B1DF86;
+  border-radius: 20px;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-color: transparent;
+  transition: .3s ease all;
+  text-decoration: none;
+  color: black;
+}
+
+.btnInit:hover{
+  background-color: #70CC25;
+}
+
+@keyframes main{
+  to{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
