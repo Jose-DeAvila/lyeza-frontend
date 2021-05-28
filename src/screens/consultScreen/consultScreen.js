@@ -12,7 +12,7 @@ function ConsultScreen(props){
 
   const [nameOrExpedition, setNameOrExpedition] = useState('');
   const [loading, setLoading] = useState(false);
-  const [setMedicine] = useContext(MedicineContext);
+  const [medicine, setMedicine] = useContext(MedicineContext);
   const [notFound, setNotFound] = useState('');
 
   const iconMenu = <FontAwesomeIcon icon={faBars}/>
@@ -33,7 +33,7 @@ function ConsultScreen(props){
       }
     }
     catch(e){
-      console.error(e.message);
+      console.error(e);
       setNotFound(e.response? e.response.data.msg : "Puede que no sea seguro");
     }
     setLoading(false);
