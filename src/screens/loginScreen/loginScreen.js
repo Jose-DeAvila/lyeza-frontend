@@ -6,28 +6,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeOpenText, faKey } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import LoadingScreen from '../loadingScreen/loadingScreen';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function LoginScreen(){
+function LoginScreen(props){
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    if(localStorage.getItem('userInfo')){
+      props.history.push("/init");
+    }
+  }, [props.history])
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     if(email && password){
       try{
-        const {data} = await axios.post('http://localhost:5000/api/users/login', {email, password});
+        const {data} = await axios.post('https://lyeza-backend.herokuapp.com/api/users/login', {email, password});
         if(data.code === 202){
+          localStorage.setItem('userInfo', JSON.stringify(data.data));
           setError(<span style={{color: 'green'}}>Logeado correctamente. Redireccionando... </span>);
+          setTimeout(() => {
+            props.history.push("/init");
+          }, 4000)
         }
       }
       catch(e){
-        console.log(e.response);
         setError(<span style={{color: 'red'}}>{e.response.data.msg}</span>);
       }  
     }
@@ -46,7 +55,7 @@ function LoginScreen(){
           <div className="loginContainer">
             <div className="titleSec">
               <img src={Logo} alt="Logo Lyeza" />
-              <h2>Inicio de sesión</h2>
+              <h2 style={{width: '100%'}}>Inicio de sesión</h2>
               {error && <p className="error">{error}</p>}
             </div>
             <div className="formContainer">

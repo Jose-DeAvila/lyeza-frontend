@@ -5,10 +5,17 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import backgroundImage from './assets/likeHand.svg';
 import SocialMediaH from '../../components/socialMedia/socialMedia-h';
 import './initScreen.css';
+import {useEffect} from 'react';
 
-function InitScreen(){
+function InitScreen(props){
 
   let iconMenu = <FontAwesomeIcon icon={faBars} />
+
+  useEffect(() => {
+    if(!localStorage.getItem('userInfo')){
+      props.history.push("/login");
+    }
+  }, [props.history])
 
   return(
     <>

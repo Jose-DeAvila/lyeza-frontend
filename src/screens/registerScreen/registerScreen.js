@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeOpenText, faKey, faSignature, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import LoadingScreen from '../loadingScreen/loadingScreen';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function RegisterScreen(props){
@@ -19,12 +19,18 @@ function RegisterScreen(props){
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if(localStorage.getItem('userInfo')){
+      props.history.push("/init");
+    }
+  }, [props.history])
+
   const submitHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
     if(firstname && lastname && occupation && email && password){
       try{
-        const {data} = await axios.post('http://localhost:5000/api/users/register', {firstname, lastname, occupation, email, password});
+        const {data} = await axios.post('https://lyeza-backend.herokuapp.com/api/users/register', {firstname, lastname, occupation, email, password});
         if(data.code === 201){
           setError(<span style={{color: 'green'}}>{data.msg + ". Inicie sesión"}</span>);
           setTimeout(() => {
@@ -54,7 +60,7 @@ function RegisterScreen(props){
           <div className="loginContainer">
             <div className="titleSec">
               <img src={Logo} alt="Logo Lyeza" />
-              <h2>Registro</h2>
+              <h2 style={{width: '100%'}}>Registro</h2>
               {error && <p className="error">{error}</p>}
             </div>
             <div className="formContainer">

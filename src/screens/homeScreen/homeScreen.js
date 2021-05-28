@@ -6,10 +6,18 @@ import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import SocialMediaH from '../../components/socialMedia/socialMedia-h';
 import LoadingScreen from '../loadingScreen/loadingScreen';
 import { Link } from 'react-router-dom';
-function HomeScreen(){
+import { useEffect } from 'react';
+
+function HomeScreen(props){
 
   let iconLogin = <FontAwesomeIcon icon={faSignInAlt} />
-  
+
+  useEffect(() => {
+    if(localStorage.getItem('userInfo')){
+      props.history.push("/init");
+    }
+  }, [props.history]);
+
   return(
     <>
       <LoadingScreen />
