@@ -24,6 +24,7 @@ function ConsultScreen(props){
       if(/^[0-9]*$/.test(parseInt(nameOrExpedition))){
         const {data} = await axios.post('https://lyeza-backend.herokuapp.com/api/medicine/getDrug', {expedient: nameOrExpedition, name: null});
         setMedicine(data);
+        console.log(medicine);
         props.history.push('/result');
       }
       else{
